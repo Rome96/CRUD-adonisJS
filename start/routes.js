@@ -29,3 +29,11 @@ Route.get('notes/edit/:id', 'NoteController.edit')
 Route.put('notes/:id', 'NoteController.update')
 
 Route.delete('notes/:id', 'NoteController.destroy')
+
+//
+
+Route
+  .get('users/:id', 'UserController.show')
+  .middleware('auth')
+
+Route.post('login', 'UserController.login')
