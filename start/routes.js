@@ -19,3 +19,6 @@ const Route = use('Route')
 Route.on('/').render('welcome')
 
 Route.get('notes', 'NoteController.index')
+
+Route.get('notes/add', 'NoteController.add')
+Route.post('notes', 'NoteController.store')
