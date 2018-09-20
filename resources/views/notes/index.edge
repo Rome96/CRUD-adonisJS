@@ -1,0 +1,12 @@
+@layout('main')
+	@section('content')
+	<ul class="list-group">
+
+		@each(note in notes)
+		<li class="list-group-item">
+			{{note.title}}
+		</li>
+		@endeach
+
+	</ul>
+	@endsection
