@@ -1,0 +1,17 @@
+@layout('main')
+	
+		@section('content')
+		<br>
+
+		<h1>{{note.title}}</h1>
+		<p>{{note.body}}</p>
+
+		<hr>
+		<a href="/notes/edit/{{note.id}}" class="btn btn-dark float-left">Edit</a>
+
+		<form action="{{'/notes/'+ note.id + '?_method=DELETE' }}" method="POST">
+		  {{csrfField()}}
+			<button type="submit" class="btn btn-danger float-right">Delete</button>
+		</form>
+		@endsection		
+		

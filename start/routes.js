@@ -22,3 +22,10 @@ Route.get('notes', 'NoteController.index')
 
 Route.get('notes/add', 'NoteController.add')
 Route.post('notes', 'NoteController.store')
+
+Route.get('notes/:id', 'NoteController.detail')
+
+Route.get('notes/edit/:id', 'NoteController.edit')
+Route.put('notes/:id', 'NoteController.update')
+
+Route.delete('notes/:id', 'NoteController.destroy')

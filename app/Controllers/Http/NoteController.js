@@ -16,7 +16,6 @@ class NoteController {
 		return view.render('notes.add')
 	}
 //---------------------------------------------------------------//
-
 	async store({request, response, view}){
 
 		const note = new Note()
@@ -26,6 +25,37 @@ class NoteController {
 
 		 return response.redirect('/notes')
 	}
+//-----------------------------------------------------------------//
+	async detail({params, view}){
+		const note = await Note.find(params.id)
+		return view.render('notes.detail', {note})
+	}
+//--------------------------------------------------------------//
+	async edit({params, view}){
+		const note = await Note.find(params.id)
+		return view.render('notes.edit', {note})
+	}
+//------------------------------------------------------------//
+
+	async update({params, request, response}){
+		const note = await Note.find(params.id)
+		note.title = request.input('title')
+		note.body = request.input('body')
+
+		await note.save()
+
+		return response.redirect('/notes')
+	}
+//-----------------------------------------------------------------------//
+
+	async destroy({params, response}){
+		const note = await Note.find(params.id)
+
+		await note.delete()
+
+		return response.redirect('/notes')
+	}
+//-----------------------------------------------------------------------------//
 
 }
 

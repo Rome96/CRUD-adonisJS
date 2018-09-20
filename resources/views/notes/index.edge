@@ -1,12 +1,14 @@
 @layout('main')
 	@section('content')
+	<br>
 	<ul class="list-group">
-
 		@each(note in notes)
 		<li class="list-group-item">
-			{{note.title}}
+			<a href="/notes/{{note.id}}">{{note.title}}</a> 
 		</li>
 		@endeach
-
 	</ul>
+	<br>
+	 <a href="/notes/add" class="btn btn-dark float-left">Add Notes</a>
+
 	@endsection
