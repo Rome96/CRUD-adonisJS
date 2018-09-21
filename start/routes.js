@@ -16,7 +16,7 @@
 /** @type {import('@adonisjs/framework/src/Route/Manager'} */
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+Route.on('/').render('home')
 
 Route.get('notes', 'NoteController.index')
 
@@ -30,10 +30,3 @@ Route.put('notes/:id', 'NoteController.update')
 
 Route.delete('notes/:id', 'NoteController.destroy')
 
-//
-
-Route
-  .get('users/:id', 'UserController.show')
-  .middleware('auth')
-
-Route.post('login', 'UserController.login')
